@@ -1,15 +1,29 @@
-import connectToDatabase from "../../../../lib/mongoDb.js"
+import connectToDatabase from "../../../../lib/mongoDb"; // Import without .ts
 import { NextResponse } from "next/server";
 
-export async function POST(req) {
-  const body = await req.json();
-  console.log("Received recipe:", body);
+// Define an interface for the Contact structure
+interface Contact {
+  title: string;
+  ingredients: string[];
+  instructions: string;
+  // Add other fields as necessary
+}
+
+export async function POST(req: Request) {
+  // Define the response type
+  const body: Contact = await req.json(); // Cast the body to the Contact type
+  console.log("Received Contact:", body);
 
   const cached = await connectToDatabase();
-  const db = cached.conn.db;
+  const db = cached.conn?.db; // Optional chaining to handle potential undefined
 
-  // Insert the recipe into the "therecipes" collection
+  // Check if db exists before attempting to insert
+  if (!db) {
+    return NextResponse.json({ message: "Database connection failed" }, { status: 500 });
+  }
+
+  // Insert the Contact into the "colormetta" collection
   const result = await db.collection("colormetta").insertOne(body);
-  
+
   return NextResponse.json({ result });
 }
