@@ -11,6 +11,11 @@ type ContactDetails = {
   message: string;
   phone: string;
 };
+interface NotificationData {
+  status: "pending" | "success" | "error" | "";
+  title: string;
+  message: string;
+}
 
 async function sendContactData(contactDetails: ContactDetails) {
   const response = await fetch("/api/contact", {
@@ -36,7 +41,7 @@ function ContactForm() {
   const [requestStatus, setRequestStatus] = useState<RequestStatus>(""); // Using RequestStatus type
   const [requestError, setRequestError] = useState<string | null>(null); // Optional error message type
   const ref = useRef(null);
-
+  let notification: NotificationData | null = null;
   useEffect(() => {
     if (requestStatus === "success" || requestStatus === "error") {
       const timer = setTimeout(() => {
@@ -70,8 +75,6 @@ function ContactForm() {
     }
   }
 
-  let notification;
-
   if (requestStatus === "pending") {
     notification = {
       status: "pending",
@@ -92,7 +95,7 @@ function ContactForm() {
     notification = {
       status: "error",
       title: "Error!",
-      message: requestError,
+      message: requestError || "Se produjo un error.",
     };
   }
 
