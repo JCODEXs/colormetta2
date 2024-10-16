@@ -142,15 +142,28 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
         setText(children);
         originalText.current = children;
 
-        if (trigger === "instant" && !hasAnimated) {
-          eventHandler();
-        }
+        // Ensure eventHandler is awaited if it's a promise
+        const handleEvent = async () => {
+          if (trigger === "instant" && !hasAnimated) {
+            try {
+              await eventHandler();
+            } catch (error) {
+              console.error("Error during eventHandler execution:", error);
+            }
+          }
+        };
+
+        handleEvent();
       }
     }, [children, trigger, eventHandler, hasAnimated]);
 
     useEffect(() => {
       if (trigger === "custom" && onTrigger) {
-        onTrigger(eventHandler);
+        const handleOnTrigger = async () => {
+          await onTrigger(eventHandler); // Await onTrigger if it returns a promise
+        };
+
+        handleOnTrigger();
       }
     }, [trigger, onTrigger, eventHandler]);
 

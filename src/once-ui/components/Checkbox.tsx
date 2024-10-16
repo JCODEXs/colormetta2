@@ -30,7 +30,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
     },
     ref,
   ) => {
-    const [isChecked, setIsChecked] = useState(controlledIsChecked || false);
+    const [isChecked, setIsChecked] = useState(controlledIsChecked ?? false);
     const [checkboxId] = useState(generateId());
 
     useEffect(() => {

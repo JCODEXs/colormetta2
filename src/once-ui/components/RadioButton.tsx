@@ -28,7 +28,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<
     },
     ref,
   ) => {
-    const [isChecked, setIsChecked] = useState(controlledIsChecked || false);
+    const [isChecked, setIsChecked] = useState(controlledIsChecked ?? false);
     const [radioId] = useState(generateId());
 
     useEffect(() => {
@@ -63,9 +63,7 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<
       >
         <Flex
           role="radio"
-          aria-checked={
-            controlledIsChecked !== undefined ? controlledIsChecked : isChecked
-          }
+          aria-checked={controlledIsChecked ?? isChecked}
           aria-labelledby={radioId}
           position="relative"
           justifyContent="center"
@@ -76,9 +74,9 @@ const RadioButton: React.FC<RadioButtonProps> = forwardRef<
           tabIndex={0}
           className={`${styles.radioButton} ${controlledIsChecked !== undefined ? (controlledIsChecked ? styles.checked : "") : isChecked ? styles.checked : ""}`}
         >
-          {(controlledIsChecked !== undefined
-            ? controlledIsChecked
-            : isChecked) && <Flex radius="full" className={styles.icon} />}
+          {(controlledIsChecked ?? isChecked) && (
+            <Flex radius="full" className={styles.icon} />
+          )}
         </Flex>
         <InteractiveDetails
           id={radioId}

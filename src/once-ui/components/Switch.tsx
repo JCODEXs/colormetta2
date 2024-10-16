@@ -55,7 +55,12 @@ const Switch = forwardRef<HTMLDivElement, SwitchProps>(
           />
         </div>
         {interactiveDetailsProps.label && (
-          <InteractiveDetails {...interactiveDetailsProps} onClick={() => {}} />
+          <InteractiveDetails
+            {...interactiveDetailsProps}
+            onClick={() => {
+              console.log("hi");
+            }}
+          />
         )}
       </Flex>
     );

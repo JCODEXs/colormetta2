@@ -118,8 +118,8 @@ const SparkleFx = forwardRef<HTMLDivElement, SparkleFxProps>(
 
     return (
       <div
-        ref={ref || containerRef}
-        className={`${styles.sparkleContainer} ${className || ""}`}
+        ref={ref ?? containerRef}
+        className={`${styles.sparkleContainer} ${className ?? ""}`}
         style={style}
         {...rest}
       >

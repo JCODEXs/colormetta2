@@ -175,8 +175,8 @@ const Dialog: React.FC<DialogProps> = forwardRef<HTMLDivElement, DialogProps>(
           >
             {children}
           </Flex>
-          {(primaryButtonProps ||
-            secondaryButtonProps ||
+          {(primaryButtonProps ??
+            secondaryButtonProps ??
             dangerButtonProps) && (
             <Flex
               as="footer"

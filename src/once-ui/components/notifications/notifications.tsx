@@ -8,7 +8,7 @@ interface NotificationProps {
 const Notification: React.FC<NotificationProps> = (props) => {
   const { status, message } = props;
   let notification;
-  let statusClass: string = "";
+  let statusClass = "";
 
   if (status === "pending") {
     notification = {

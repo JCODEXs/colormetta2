@@ -15,7 +15,7 @@ import {
   RevealFx,
 } from "@/once-ui/components";
 interface MoreInfoProps {
-  id: Number;
+  id: number;
 }
 
 const MoreInfo = ({ id }: MoreInfoProps) => {

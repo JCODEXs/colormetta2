@@ -3,7 +3,7 @@ import React from "react";
 import MoreInfo from "@/once-ui/components/custom/moreInfo";
 interface PricingPageProps {
   params: {
-    id: Number;
+    id: number;
   };
 }
 
