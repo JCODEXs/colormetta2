@@ -15,7 +15,7 @@ import {
   RevealFx,
 } from "@/once-ui/components";
 
-const Pricing = () => {
+const Pricing: React.FC = () => {
   const plans = [
     {
       title: "Basic Plan",

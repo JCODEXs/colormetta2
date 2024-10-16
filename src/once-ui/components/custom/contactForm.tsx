@@ -1,11 +1,18 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import styles from "./contactForm.module.css";
 import Notification from "../notifications/notifications";
-import Image from "next/image";
 
-async function sendContactData(contactDetails) {
+type RequestStatus = "pending" | "success" | "error" | "";
+type ContactDetails = {
+  email: string;
+  name: string;
+  message: string;
+  phone: string;
+};
+
+async function sendContactData(contactDetails: ContactDetails) {
   const response = await fetch("/api/contact", {
     method: "POST",
     body: JSON.stringify(contactDetails),
@@ -21,20 +28,19 @@ async function sendContactData(contactDetails) {
   }
 }
 
-function ContactForm({ showImage = true }) {
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredName, setEnteredName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [enteredMessage, setEnteredMessage] = useState("");
-  const [requestStatus, setRequestStatus] = useState(); // 'pending', 'success', 'error'
-  const [requestError, setRequestError] = useState();
-  // console.log(showImage);
+function ContactForm() {
+  const [enteredEmail, setEnteredEmail] = useState<string>("");
+  const [enteredName, setEnteredName] = useState<string>("");
+  const [phone, setPhone] = useState<string>("");
+  const [enteredMessage, setEnteredMessage] = useState<string>("");
+  const [requestStatus, setRequestStatus] = useState<RequestStatus>(""); // Using RequestStatus type
+  const [requestError, setRequestError] = useState<string | null>(null); // Optional error message type
   const ref = useRef(null);
 
   useEffect(() => {
     if (requestStatus === "success" || requestStatus === "error") {
       const timer = setTimeout(() => {
-        setRequestStatus(null);
+        setRequestStatus("");
         setRequestError(null);
       }, 3000);
 
@@ -42,7 +48,7 @@ function ContactForm({ showImage = true }) {
     }
   }, [requestStatus]);
 
-  async function sendMessageHandler(event) {
+  async function sendMessageHandler(event: React.FormEvent) {
     event.preventDefault();
     setRequestStatus("pending");
 
@@ -58,7 +64,7 @@ function ContactForm({ showImage = true }) {
       setEnteredEmail("");
       setEnteredName("");
       setPhone("");
-    } catch (error) {
+    } catch (error: any) {
       setRequestError(error.message);
       setRequestStatus("error");
     }
@@ -152,7 +158,7 @@ function ContactForm({ showImage = true }) {
             <textarea
               style={{ border: "1px solid #0D0D0D" }}
               id="message"
-              rows="5"
+              rows={5}
               required
               value={enteredMessage}
               onChange={(event) => setEnteredMessage(event.target.value)}
