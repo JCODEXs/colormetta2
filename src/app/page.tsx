@@ -72,7 +72,7 @@ export default function Home() {
               paddingX="xl"
               alignItems="flex-end"
               justifyContent="flex-start"
-              marginBottom="26"
+              marginBottom="24"
             >
               <Logo size="xl" icon={false} style={{ zIndex: "1" }} />
               <span className="font-code">
