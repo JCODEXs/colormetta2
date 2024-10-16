@@ -1,9 +1,13 @@
 import React from "react";
 import styles from "./notifications.module.css";
-
-function Notification(props) {
+interface NotificationProps {
+  status: "pending" | "success" | "error"; // Limited to specific string values
+  requestError?: string; // Optional property for error messages
+}
+const Notification: React.FC<NotificationProps> = (props) => {
   const { status, requestError } = props;
   let notification;
+  let statusClass: string = "";
 
   if (status === "pending") {
     notification = {
@@ -25,16 +29,22 @@ function Notification(props) {
     notification = {
       status: "error",
       title: "Error!",
-      message: requestError,
+      message: requestError ? requestError : "Se produjo un error.",
+    };
+  } else {
+    // Fallback for unexpected status (optional)
+    notification = {
+      status: "unknown",
+      title: "Estado desconocido",
+      message: "Ocurrió un error inesperado.",
     };
   }
-  let statusClass = "";
 
-  if (status === "success") {
+  if (status === "success" && styles.success) {
     statusClass = styles.success;
-  } else if (status === "error") {
+  } else if (status === "error" && styles.error) {
     statusClass = styles.error;
-  } else if (status === "pending") {
+  } else if (status === "pending" && styles.pending) {
     statusClass = styles.pending;
   }
 
@@ -44,6 +54,6 @@ function Notification(props) {
       <div>{notification.message}</div>
     </div>
   );
-}
+};
 
 export default Notification;

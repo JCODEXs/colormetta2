@@ -1,4 +1,4 @@
-import connectToDatabase from "../../../../lib/mongoDb"; // Import without .ts
+import connectToDatabase from "mongoDb"; // Import without .ts
 import { NextResponse } from "next/server";
 
 // Define an interface for the Contact structure
