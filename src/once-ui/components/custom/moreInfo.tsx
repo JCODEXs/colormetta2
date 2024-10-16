@@ -14,8 +14,11 @@ import {
   SmartImage,
   RevealFx,
 } from "@/once-ui/components";
+interface MoreInfoProps {
+  id: Number;
+}
 
-const MoreInfo = ({ id }) => {
+const MoreInfo = ({ id }: MoreInfoProps) => {
   const features = [
     {
       title: "1. Basic Website Design",
@@ -182,7 +185,6 @@ const MoreInfo = ({ id }) => {
                   border="neutral-medium"
                   borderStyle="solid-2"
                   padding="l"
-                  hovereffect="scale"
                   alignItems="baseline"
                 >
                   <Flex fillWidth gap="8" alignItems="center">
@@ -219,7 +221,6 @@ const MoreInfo = ({ id }) => {
                     border="neutral-medium"
                     borderStyle="solid-2"
                     padding="l"
-                    hovereffect="scale"
                     alignItems="baseline"
                   >
                     <Flex fillWidth gap="8" alignItems="center">

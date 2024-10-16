@@ -150,7 +150,6 @@ const Pricing = () => {
                   border="neutral-medium"
                   borderStyle="solid-2"
                   padding="l"
-                  hovereffect="scale"
                   alignItems="baseline"
                 >
                   <Flex fillWidth gap="8" alignItems="center">

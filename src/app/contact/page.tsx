@@ -61,7 +61,7 @@ function Contact() {
               position="relative"
               flex={4}
               gap="16"
-              marginBottom="22"
+              marginBottom="20"
               direction="column"
             >
               <Heading wrap="balance" variant="display-strong-s">
