@@ -3,12 +3,13 @@ import connectToDatabase from "lib/mongoDb";
 import { NextResponse } from "next/server";
 
 // Define an interface for the Contact structure
-interface Contact {
-  title: string;
-  ingredients: string[];
-  instructions: string;
-  // Add other fields as necessary
-}
+
+interface Contact  {
+  email: string;
+  name: string;
+  message: string;
+  phone: string;
+};
 
 export async function POST(req: Request) {
   // Define the response type

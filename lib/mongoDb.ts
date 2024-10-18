@@ -1,4 +1,5 @@
-import { MongoClient, Db } from "mongodb";
+import { MongoClient } from "mongodb";
+import type {  Db } from "mongodb";
 
 const MONGODB_DB = "Juridicas";
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_CLUSTER_URL}/?retryWrites=true&w=majority`;
@@ -25,7 +26,7 @@ interface Cached {
 }
 
 const connectToDatabase = async (): Promise<Cached> => {
-  let cached: Cached = {}; // Initialize cached as an empty object of type Cached
+  const cached: Cached = {}; // Initialize cached as an empty object of type Cached
   const conn: Connection = {}; // Initialize conn as an empty object of type Connection
 
   const opts = {

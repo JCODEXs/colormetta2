@@ -65,11 +65,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
         <Flex
           role="checkbox"
           aria-checked={
-            isIndeterminate
-              ? "mixed"
-              : controlledIsChecked !== undefined
-                ? controlledIsChecked
-                : isChecked
+            isIndeterminate ? "mixed" : (controlledIsChecked ?? isChecked)
           }
           aria-labelledby={checkboxId}
           position="relative"
@@ -79,26 +75,19 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef<
           onKeyDown={handleKeyDown}
           tabIndex={0}
           className={`${styles.checkbox} ${
-            (
-              controlledIsChecked !== undefined
-                ? controlledIsChecked || isIndeterminate
-                : isChecked
-            )
+            ((controlledIsChecked || isIndeterminate) ?? isChecked)
               ? styles.checked
               : ""
           }`}
         >
-          {(controlledIsChecked !== undefined
-            ? controlledIsChecked
-            : isChecked) &&
-            !isIndeterminate && (
-              <Icon
-                onSolid="brand-strong"
-                name="check"
-                size="xs"
-                className={styles.icon}
-              />
-            )}
+          {(controlledIsChecked ?? isChecked) && !isIndeterminate && (
+            <Icon
+              onSolid="brand-strong"
+              name="check"
+              size="xs"
+              className={styles.icon}
+            />
+          )}
           {isIndeterminate && (
             <Flex
               radius="full"
