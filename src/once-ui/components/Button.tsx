@@ -68,31 +68,40 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
     if (href) {
       const isExternal = isExternalLink(href);
 
-      if (isExternal) {
-        return (
-          <a
-            href={href}
-            ref={ref as React.Ref<HTMLAnchorElement>}
-            target="_blank"
-            rel="noreferrer"
-            {...commonProps}
-            {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-          >
-            {content}
-          </a>
-        );
-      }
+      if (href) {
+        const isExternal = isExternalLink(href);
 
-      return (
-        <Link
-          href={href}
-          ref={ref as React.Ref<HTMLAnchorElement>}
-          {...commonProps}
-          {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
-        >
-          {content}
-        </Link>
-      );
+        if (href) {
+          const isExternal = isExternalLink(href);
+
+          if (isExternal) {
+            return (
+              <a
+                href={href}
+                ref={ref as unknown as React.Ref<HTMLAnchorElement>} // Convert to unknown first
+                target="_blank"
+                rel="noreferrer"
+                {...commonProps}
+                {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+              >
+                {content}
+              </a>
+            );
+          }
+
+          return (
+            <Link href={href} passHref>
+              <a
+                ref={ref as unknown as React.Ref<HTMLAnchorElement>} // Convert to unknown first
+                {...commonProps}
+                {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+              >
+                {content}
+              </a>
+            </Link>
+          );
+        }
+      }
     }
 
     return (
