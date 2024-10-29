@@ -89,7 +89,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
         return (
           <a
             href={href}
-            ref={ref as React.Ref<HTMLAnchorElement>}
+            ref={ref as unknown as React.Ref<HTMLAnchorElement>}
             target="_blank"
             rel="noreferrer"
             {...commonProps}
@@ -103,7 +103,7 @@ const IconButton = forwardRef<HTMLButtonElement, IconButtonProps | AnchorProps>(
       return (
         <Link
           href={href}
-          ref={ref as React.Ref<HTMLAnchorElement>}
+          ref={ref as unknown as React.Ref<HTMLAnchorElement>}
           {...commonProps}
           {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
         >
