@@ -17,7 +17,7 @@ interface NotificationData {
   message: string;
 }
 
-async function sendContactData(contactDetails: ContactDetails) {
+async function sendContactData(contactDetails: ContactDetails): Promise<void> {
   const response = await fetch("/api/contact", {
     method: "POST",
     body: JSON.stringify(contactDetails),
@@ -95,7 +95,7 @@ function ContactForm() {
     notification = {
       status: "error",
       title: "Error!",
-      message: requestError || "Se produjo un error.",
+      message: requestError ?? "Se produjo un error.",
     };
   }
 
