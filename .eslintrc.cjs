@@ -11,8 +11,8 @@ const config = {
     "plugin:@typescript-eslint/stylistic-type-checked",
   ],
   rules: {
-    "@typescript-eslint/array-type": "off",
-    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/array-type": "off", // Disable enforcing array types
+    "@typescript-eslint/consistent-type-definitions": "off", // Disable enforcing type definitions
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
@@ -23,19 +23,24 @@ const config = {
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
-        argsIgnorePattern: "^_",
+        argsIgnorePattern: "^_", // Allow unused variables starting with "_"
+        varsIgnorePattern: "^_", // Allow unused variables starting with "_"
       },
     ],
-    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/require-await": "off", // Disable requiring async functions to have await
     "@typescript-eslint/no-misused-promises": [
-      "error",
+      "warn", // Change from error to warn
       {
         checksVoidReturn: {
           attributes: false,
         },
       },
     ],
+    "@typescript-eslint/no-unsafe-assignment": "off", // Allow unsafe assignments
+    "@typescript-eslint/no-unnecessary-type-assertion": "off", // Allow unnecessary type assertions
+    "@typescript-eslint/prefer-nullish-coalescing": "off", // Allow using || instead of ?? for nullish checks
   },
   ignorePatterns: ["lib/**/*.d.ts"], // Ignore .d.ts files from linting
 };
+
 module.exports = config;

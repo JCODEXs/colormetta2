@@ -1,31 +1,45 @@
-
 import connectToDatabase from "lib/mongoDb";
 import { NextResponse } from "next/server";
+import { z } from "zod"; // Make sure Zod is installed
 
 // Define an interface for the Contact structure
-
-interface Contact  {
+interface Contact {
   email: string;
   name: string;
   message: string;
   phone: string;
-};
+}
+
+// Define a Zod schema based on the Contact structure
+const ContactSchema = z.object({
+  email: z.string().email(),
+  name: z.string().min(1),
+  message: z.string().min(1),
+  phone: z.string().optional(),
+});
 
 export async function POST(req: Request) {
-  // Define the response type
-  const body: Contact = await req.json(); // Cast the body to the Contact type
-  console.log("Received Contact:", body);
+  // Parse the incoming JSON body with the Zod schema
+  const body = await req.json();
+
+  // Validate against the schema
+  const validation = ContactSchema.safeParse(body);
+  if (!validation.success) {
+    return NextResponse.json({ error: "Invalid input format" }, { status: 400 });
+  }
+
+  console.log("Received Contact:", validation.data);
 
   const cached = await connectToDatabase();
   const db = cached.conn?.db; // Optional chaining to handle potential undefined
 
-  // Check if db exists before attempting to insert
   if (!db) {
     return NextResponse.json({ message: "Database connection failed" }, { status: 500 });
   }
 
-  // Insert the Contact into the "colormetta" collection
-  const result = await db.collection("colormetta").insertOne(body);
+  // Insert the validated Contact into the "colormetta" collection
+  const result = await db.collection("colormetta").insertOne(validation.data);
 
   return NextResponse.json({ result });
 }
+
