@@ -117,7 +117,6 @@ const Scroller: React.FC<ScrollerProps> = ({
         fillWidth
         ref={scrollerRef}
         className={`${styles.scroller} ${direction === "row" ? styles.row : ""} ${direction === "column" ? styles.column : ""}`}
-        {...props}
       >
         {children}
       </Flex>
