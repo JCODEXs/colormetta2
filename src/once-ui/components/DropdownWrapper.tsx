@@ -148,7 +148,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
           >
             <Dropdown
               options={dropdownOptions}
-              onOptionSelect={(option) => {
+              onOptionSelect={() => {
                 // onOptionSelect(option);
                 setDropdownOpen(false);
               }}

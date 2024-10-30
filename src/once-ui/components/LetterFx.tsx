@@ -158,7 +158,7 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
       if (trigger === "custom" && onTrigger) {
         const handleOnTrigger = async () => {
           try {
-            onTrigger(eventHandler);
+            void onTrigger(eventHandler);
           } catch (error) {
             console.error("Error during onTrigger execution:", error);
           }
