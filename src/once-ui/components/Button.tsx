@@ -66,10 +66,10 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
     };
 
     if (href) {
-      const isExternal = isExternalLink(href);
+      // const _isExternal = isExternalLink(href);
 
       if (href) {
-        const isExternal = isExternalLink(href);
+        // const isExternal = isExternalLink(href);
 
         if (href) {
           const isExternal = isExternalLink(href);

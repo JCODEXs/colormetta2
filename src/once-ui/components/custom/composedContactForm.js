@@ -1,8 +1,6 @@
 "use client";
-import { useRef } from "react";
 // import BackgroundSoft from "../3dview/backgroundSoft";
 import ContactForm from "./contactForm";
-import Image from "next/image";
 
 export default function ComposedContactForm({}) {
   return (

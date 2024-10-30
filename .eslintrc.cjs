@@ -39,6 +39,7 @@ const config = {
     "@typescript-eslint/no-unsafe-assignment": "off", // Allow unsafe assignments
     "@typescript-eslint/no-unnecessary-type-assertion": "off", // Allow unnecessary type assertions
     "@typescript-eslint/prefer-nullish-coalescing": "off", // Allow using || instead of ?? for nullish checks
+    " @typescript-eslint/no-empty-function": "off",
   },
   ignorePatterns: ["lib/**/*.d.ts"], // Ignore .d.ts files from linting
 };

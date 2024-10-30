@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Image } from "primereact/image";
 import React from "react";
 import {
   Heading,
@@ -7,7 +6,6 @@ import {
   Flex,
   Button,
   Grid,
-  Icon,
   Logo,
   Background,
   LetterFx,

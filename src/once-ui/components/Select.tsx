@@ -20,14 +20,14 @@ const Select = forwardRef<HTMLDivElement, SelectProps>(
     {
       options,
       value,
-      hasSuffix,
-      style,
+      // hasSuffix,
+      // style,
       onSelect,
-      renderDropdownOptions,
+      // renderDropdownOptions,
       renderCustomDropdownContent,
       ...inputProps
     },
-    ref,
+    // ref,
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(!!value);

@@ -32,9 +32,8 @@ function getRandomCharacter(charset: string[]): string {
   const randomIndex = Math.floor(Math.random() * charset.length);
   const character = charset[randomIndex];
 
-  // Check if character is undefined and handle it
   if (character === undefined) {
-    throw new Error("Character not found in charset"); // or return a default character
+    throw new Error("Character not found in charset");
   }
 
   return character;
@@ -124,8 +123,8 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
       typeof children === "string" ? children : "",
     );
 
-    const eventHandler = useCallback(
-      createEventHandler(
+    const eventHandler = useCallback(async () => {
+      await createEventHandler(
         originalText.current,
         setText,
         inProgress,
@@ -133,16 +132,14 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
         speed,
         charset,
         trigger === "instant" ? setHasAnimated : undefined,
-      ),
-      [inProgress, trigger, speed, charset],
-    );
+      )();
+    }, [inProgress, speed, charset, trigger]);
 
     useEffect(() => {
       if (typeof children === "string") {
         setText(children);
         originalText.current = children;
 
-        // Ensure eventHandler is awaited if it's a promise
         const handleEvent = async () => {
           if (trigger === "instant" && !hasAnimated) {
             try {
@@ -153,17 +150,21 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
           }
         };
 
-        handleEvent();
+        void handleEvent();
       }
     }, [children, trigger, eventHandler, hasAnimated]);
 
     useEffect(() => {
       if (trigger === "custom" && onTrigger) {
         const handleOnTrigger = async () => {
-          onTrigger(eventHandler); // Await onTrigger if it returns a promise
+          try {
+            await onTrigger(eventHandler);
+          } catch (error) {
+            console.error("Error during onTrigger execution:", error);
+          }
         };
 
-        handleOnTrigger();
+        void handleOnTrigger();
       }
     }, [trigger, onTrigger, eventHandler]);
 

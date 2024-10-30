@@ -20,7 +20,7 @@ interface UserMenuProps extends UserProps {
 const UserMenu: React.FC<UserMenuProps> = ({
   selected = false,
   dropdownOptions = [],
-  dropdownAlignment = "left",
+  // dropdownAlignment = "left",
   dropdownProps,
   className,
   ...userProps

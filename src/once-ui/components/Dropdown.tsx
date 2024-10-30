@@ -52,7 +52,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>(
     const internalRef = useRef<HTMLDivElement>(null);
     const typingTimeoutRef = useRef<number | null>(null);
 
-    useImperativeHandle(ref, () => internalRef.current as HTMLDivElement);
+    useImperativeHandle(ref, () => internalRef.current! as HTMLDivElement);
 
     const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
       if (focusedIndex === null) {

@@ -9,7 +9,7 @@ import React, {
   useState,
 } from "react";
 import ReactDOM from "react-dom";
-import classNames from "classnames";
+// import classNames from "classnames";
 import { Flex, Heading, IconButton, Button, ButtonProps, Text } from ".";
 import styles from "./Dialog.module.scss";
 
