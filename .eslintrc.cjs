@@ -13,20 +13,20 @@ const config = {
   rules: {
     "@typescript-eslint/array-type": "off", // Disable enforcing array types
     "@typescript-eslint/consistent-type-definitions": "off", // Disable enforcing type definitions
-    "@typescript-eslint/consistent-type-imports": [
-      "warn",
-      {
-        prefer: "type-imports",
-        fixStyle: "inline-type-imports",
-      },
-    ],
-    "@typescript-eslint/no-unused-vars": [
-      "warn",
-      {
-        argsIgnorePattern: "^_", // Allow unused variables starting with "_"
-        varsIgnorePattern: "^_", // Allow unused variables starting with "_"
-      },
-    ],
+    // "@typescript-eslint/consistent-type-imports": [
+    //   "warn",
+    //   {
+    //     prefer: "type-imports",
+    //     fixStyle: "inline-type-imports",
+    //   },
+    // ],
+    // "@typescript-eslint/no-unused-vars": [
+    //   "warn",
+    //   {
+    //     argsIgnorePattern: "^_", // Allow unused variables starting with "_"
+    //     varsIgnorePattern: "^_", // Allow unused variables starting with "_"
+    //   },
+    // ],
     "@typescript-eslint/require-await": "off", // Disable requiring async functions to have await
     "@typescript-eslint/no-misused-promises": [
       "warn", // Change from error to warn

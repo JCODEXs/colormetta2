@@ -1,14 +1,7 @@
 import connectToDatabase from "lib/mongoDb";
 import { NextResponse } from "next/server";
-import { z } from "zod"; // Make sure Zod is installed
+import { z } from "zod";
 
-// Define an interface for the Contact structure
-interface Contact {
-  email: string;
-  name: string;
-  message: string;
-  phone: string;
-}
 
 // Define a Zod schema based on the Contact structure
 const ContactSchema = z.object({
