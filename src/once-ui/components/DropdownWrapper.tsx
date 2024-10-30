@@ -62,7 +62,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
       whileElementsMounted: autoUpdate,
     });
 
-    useImperativeHandle(ref, () => wrapperRef.current as HTMLDivElement);
+    useImperativeHandle(ref, () => wrapperRef.current! as HTMLDivElement);
 
     useEffect(() => {
       if (wrapperRef.current) {
@@ -119,7 +119,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
       e.stopPropagation();
     };
 
-    const { onOptionSelect = () => {}, ...restDropdownProps } = dropdownProps;
+    const { ...restDropdownProps } = dropdownProps;
 
     return (
       <Flex
@@ -149,7 +149,7 @@ const DropdownWrapper = forwardRef<HTMLDivElement, DropdownWrapperProps>(
             <Dropdown
               options={dropdownOptions}
               onOptionSelect={(option) => {
-                onOptionSelect(option);
+                // onOptionSelect(option);
                 setDropdownOpen(false);
               }}
               {...restDropdownProps}
