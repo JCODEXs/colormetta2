@@ -160,7 +160,7 @@ const LetterFx = forwardRef<HTMLSpanElement, LetterFxProps>(
     useEffect(() => {
       if (trigger === "custom" && onTrigger) {
         const handleOnTrigger = async () => {
-          await onTrigger(eventHandler); // Await onTrigger if it returns a promise
+          onTrigger(eventHandler); // Await onTrigger if it returns a promise
         };
 
         handleOnTrigger();

@@ -11,7 +11,6 @@ interface ScrollerProps {
   contained?: boolean;
   className?: string;
   style?: React.CSSProperties;
-  [key: string]: any;
 }
 
 const Scroller: React.FC<ScrollerProps> = ({
@@ -20,7 +19,6 @@ const Scroller: React.FC<ScrollerProps> = ({
   contained = false,
   className,
   style,
-  ...props
 }) => {
   const scrollerRef = useRef<HTMLDivElement>(null);
   const [showPrevButton, setShowPrevButton] = useState<boolean>(false);

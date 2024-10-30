@@ -25,11 +25,12 @@ async function sendContactData(contactDetails: ContactDetails): Promise<void> {
       "Content-Type": "application/json",
     },
   });
-  const data = await response.json();
+  const data: { message?: string } = await response.json();
+  console.log(data);
 
   if (!response.ok) {
     // console.log("hi");
-    throw new Error(data.message || "Something went wrong!");
+    throw new Error(data?.message ?? "Something went wrong!");
   }
 }
 
@@ -69,8 +70,12 @@ function ContactForm() {
       setEnteredEmail("");
       setEnteredName("");
       setPhone("");
-    } catch (error: any) {
-      setRequestError(error.message);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setRequestError(error.message);
+      } else {
+        setRequestError("An unknown error occurred");
+      }
       setRequestStatus("error");
     }
   }

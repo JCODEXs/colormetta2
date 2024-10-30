@@ -90,7 +90,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps | AnchorProps>(
           }
 
           return (
-            <Link href={href} passHref>
+            <Link href={href} passHref legacyBehavior>
               <a
                 ref={ref as unknown as React.Ref<HTMLAnchorElement>} // Convert to unknown first
                 {...commonProps}
