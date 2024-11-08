@@ -8,7 +8,7 @@ import {
   SmartImage,
   RevealFx,
 } from "@/once-ui/components";
-import ComposedContactForm from "@/once-ui/components/custom/composedContactForm";
+import ContactForm from "@/once-ui/components/custom/contactForm";
 function Contact() {
   return (
     <Flex
@@ -78,7 +78,7 @@ function Contact() {
             </Flex>
           </Flex>
           <RevealFx>
-            <ComposedContactForm />
+            <ContactForm />
           </RevealFx>
         </Flex>
       </Flex>

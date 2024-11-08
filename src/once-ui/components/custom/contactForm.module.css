@@ -1,16 +1,10 @@
 .contact {
-   padding: 1rem;
-    margin: var(--size-4) auto;
-    border-radius: 6px;
-    background-color: var(--color-grey-100);
+   padding: 1.2rem;
+    background: var(--scheme-custom-100);
     width: 100%;
-    /* max-width: 50rem; */
-    padding: var(--size-2);
-    /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2); */
     font-size: var(--size-4);
-    /* margin: 1rem; */
-   
     justify-content: center;
+    border-radius: 1rem;
   }
   
   .contact h1 {
@@ -27,15 +21,15 @@
   }
    @keyframes InputAnimation {
     0% {
-     color:#090f09/* Initial background color */
+     color: var(--scheme-custom-600)/* Initial background color */
   }
   70% {
      /* Color transition midpoint */
     transform: scale(1.02); /* Slightly scale up */
-    color:#171716
+    color:var(--scheme-custom-400)
   }
   100% {
-     color:#171716
+     color:var(--scheme-custom-500)
   }
 }
   .callToaction{
@@ -44,6 +38,7 @@
     margin:1rem;
     display: flex;
     justify-content: center;
+    color: var(--scheme-custom-200)
   }
   .form input,
   .form textarea {
@@ -51,7 +46,7 @@
     border-radius: 4px;
     width: 100%;
     border: 1px solid var(--color-grey-400);
-    background-color: var(--color-grey-50);
+    /* background-color: var(--color-grey-50); */
     resize: none;
   }
   
@@ -64,7 +59,7 @@
   .control {
     flex: 1;
     min-width: 10rem;
-    color: #090f09;
+    color: #05F2C7;
   }
   
   .actions {
@@ -93,7 +88,7 @@
   } */
   
   .form button:hover {
-    background-color: #300559e4;
+    background-color: var(--scheme-custom-600);
     border-color: var(--color-primary-500);
   }
   
@@ -147,15 +142,14 @@
    cursor: pointer;
   font: inherit;
   border: none;
-  background-color:#0724c7;
+  background-color:var(--scheme-custom-400);
   width: fit-content;
   align-self: center;
   color: white;
   padding: 0.5rem 0.75rem;
-  cursor: pointer;
   border-radius: 20px;
   z-index: 10;
-  margin: 0.25rem;
+  margin: 0.55rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }

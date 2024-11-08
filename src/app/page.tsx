@@ -98,7 +98,7 @@ export default function Home() {
                 <Button
                   href="/pricing"
                   suffixIcon="chevronRight"
-                  variant="secondary"
+                  variant="primary"
                 >
                   Hear how
                 </Button>
@@ -123,7 +123,7 @@ export default function Home() {
               >
                 <Flex fillWidth paddingY="8" gap="8" direction="column">
                   <Flex fillWidth gap="12" alignItems="center">
-                    <Text variant="body-strong-m" onBackground="neutral-strong">
+                    <Text variant="body-strong-m" onBackground="neutral-medium">
                       {link.title}
                     </Text>
                     <Icon size="s" name="arrowUpRight" />
