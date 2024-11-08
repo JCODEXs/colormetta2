@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import Pricing from "@/once-ui/components/custom/pricing";
+import FrequentlyAskedQuestion from "@/once-ui/components/custom/FrequentlyAskedQuestions";
 
 export default function PricingPage() {
-  return <Pricing />;
+  return (
+    <div>
+      <Pricing />
+      <FrequentlyAskedQuestion />
+    </div>
+  );
 }

@@ -27,11 +27,11 @@ export default function Home() {
       title: "Meeting",
       description: "Book a meeting whit our team",
     },
-    // {
-    //   href: "/explore",
-    //   title: "Explore",
-    //   description: "See some components in action",
-    // },
+    {
+      href: "/pricing",
+      title: "Pricing",
+      description: "See our Plans",
+    },
   ];
 
   return (
@@ -109,7 +109,7 @@ export default function Home() {
             radius="l"
             border="neutral-medium"
             borderStyle="solid-1"
-            columns="repeat(2, 1fr)"
+            columns="repeat(3, 1fr)"
             tabletColumns="1col"
             mobileColumns="1col"
             fillWidth

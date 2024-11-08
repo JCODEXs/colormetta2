@@ -17,6 +17,7 @@ interface MoreInfoProps {
 }
 
 const MoreInfo = ({ id }: MoreInfoProps) => {
+  console.log(id);
   const features = [
     {
       title: "1. Basic Website Design",
@@ -27,18 +28,9 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
         "Basic Branding: Addition of a logo (provided by the client) and brand colors.",
       ],
     },
+
     {
-      title: "Up to 3-5 Pages",
-      features: [
-        "Home: Overview and introduction of the brand or business.",
-        "About: Information about the company, individual, or mission.",
-        " Contact: Simple form or contact details (phone number, email, location).",
-        "Services or Products: Page listing services or products (with brief descriptions).",
-        "Blog or Gallery (Optional): For portfolios or simple content updates.",
-      ],
-    },
-    {
-      title: "3. Basic Functionality",
+      title: "2. Basic Functionality",
 
       features: [
         "Contact Form: A simple form that submits user inquiries to an email.",
@@ -48,7 +40,7 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
       ],
     },
     {
-      title: "4. Stock Images or Client Provided Media",
+      title: "3. Stock Images or Client Provided Media",
 
       features: [
         "Free Stock Images: Usage of royalty-free stock images (or client-provided images).",
@@ -56,7 +48,7 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
       ],
     },
     {
-      title: "5. Basic Deployment",
+      title: "4. Basic Deployment",
 
       features: [
         "Hosting Setup: Deployment of the website on a basic shared hosting platform.",
@@ -66,17 +58,29 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
       ],
     },
     {
-      title: "6. Limited Revisions",
+      title: "5. Limited Revisions",
 
       features: [
         "1-2 Rounds of Revisions: Allowing small adjustments after initial delivery (e.g., text or color tweaks).",
       ],
     },
   ];
+  const PlusFeatures = [
+    {
+      title: "6. Up to 3-5 Pages",
+      features: [
+        "Home: Overview and introduction of the brand or business.",
+        "About: Information about the company, individual, or mission.",
+        " Contact: Simple form or contact details (phone number, email, location).",
+        "Services or Products: Page listing services or products (with brief descriptions).",
+        "Blog or Gallery (Optional): For portfolios or simple content updates.",
+      ],
+    },
+  ];
 
   const extraFeatures = [
     {
-      title: "7. Extra Features",
+      title: "6. Extra Features",
 
       features: [
         "Custom Design & Development: Advanced design and custom-built components or animations.",
@@ -157,7 +161,15 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
             </Flex>
           </Flex>
           <Flex justifyContent="center" margin="8">
-            <Text variant="body-strong-l">Detailed summary of features.</Text>
+            <Text variant="body-strong-l">
+              Detailed summary of features for {id == 1 && "Basic Plan $290"}{" "}
+              {id == 2 && "Plus Plan $480"} {id == 3 && "Custom Plan"}
+            </Text>
+          </Flex>
+          <Flex alignItems="strech" justifyContent="center">
+            <Button href="/contact" variant="primary">
+              Build My Website
+            </Button>
           </Flex>
           {/* MoreInfo Cards */}
           <RevealFx>
@@ -207,6 +219,45 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
                   </Flex>
                 </Flex>
               ))}
+              {id == 2 &&
+                PlusFeatures.map((plan, index) => (
+                  <Flex
+                    key={index}
+                    fillWidth
+                    paddingY="12"
+                    gap="4"
+                    direction="column"
+                    radius="l"
+                    border="neutral-medium"
+                    borderStyle="solid-2"
+                    padding="l"
+                    alignItems="baseline"
+                  >
+                    <Flex fillWidth gap="8" alignItems="center">
+                      <Text
+                        variant="body-strong-l"
+                        onBackground="neutral-strong"
+                      >
+                        {plan.title}
+                      </Text>
+                    </Flex>
+
+                    <Flex margin="4" gap="2">
+                      <ul>
+                        {plan.features.map((feature, featureIndex) => (
+                          <li key={featureIndex}>
+                            <Text
+                              variant="body-default-s"
+                              onBackground="neutral-weak"
+                            >
+                              {feature}
+                            </Text>
+                          </li>
+                        ))}
+                      </ul>
+                    </Flex>
+                  </Flex>
+                ))}
               {id == 3 &&
                 extraFeatures.map((plan, index) => (
                   <Flex
@@ -248,11 +299,6 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
                 ))}
             </Grid>
           </RevealFx>
-          <Flex alignItems="strech" justifyContent="center">
-            <Button href="/contact" variant="primary">
-              Build My Website
-            </Button>
-          </Flex>
         </Flex>
       </Flex>
 

@@ -40,7 +40,7 @@
 }
   .callToaction{
     font-size: 1.3rem;
-    animation: InputAnimation 4s infinite;
+    animation: InputAnimation 4s forwards;
     margin:1rem;
     display: flex;
     justify-content: center;
