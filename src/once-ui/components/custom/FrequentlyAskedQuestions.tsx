@@ -1,16 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import {
-  Text,
-  Flex,
-  Button,
-  Grid,
-  DropdownWrapper,
-  Dropdown,
-  DropdownOptions,
-  RevealFx,
-  Accordion,
-} from "@/once-ui/components";
+import { Text, Flex, Button, RevealFx, Accordion } from "@/once-ui/components";
 
 const FrequentlyAskedQuestion = () => {
   const features = [
@@ -109,7 +99,7 @@ const FrequentlyAskedQuestion = () => {
           </Flex>
           <Flex direction="column">
             {features.map((plan, index) => (
-              <Accordion title={plan.title}>
+              <Accordion title={plan.title} key={index}>
                 <Flex margin="4" gap="2">
                   <Text variant="body-default-s" onBackground="neutral-weak">
                     {plan.features}
