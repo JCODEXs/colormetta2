@@ -81,10 +81,10 @@ const SmartImage: React.FC<SmartImageProps> = ({
         ref={imageRef}
         fillWidth
         position="relative"
-        {...(!isEnlarged && { background: "neutral-medium" })}
+        // {...(!isEnlarged && { background: "neutral-weak" })}
         style={{
           outline: "none",
-          overflow: "hidden",
+          overflow: "clip",
           height: aspectRatio ? undefined : height ? `${height}rem` : "100%",
           aspectRatio,
           cursor: enlarge ? "pointer" : "default",
@@ -140,7 +140,7 @@ const SmartImage: React.FC<SmartImageProps> = ({
             left: 0,
             width: "100vw",
             height: "100vh",
-            background: "var(--backdrop)",
+            background: "var(--scheme-custom-100)",
             cursor: "pointer",
             transition: "opacity 0.3s ease-in-out",
             opacity: isEnlarged ? 1 : 0,

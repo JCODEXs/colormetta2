@@ -147,14 +147,23 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
               marginBottom="24"
               direction="column"
             >
-              <Heading wrap="balance" variant="display-strong-s">
+              <Heading
+                wrap="balance"
+                variant="body-default-m"
+                padding="8"
+                margin="8"
+              >
                 <span className="font-code">
                   <SmartImage
-                    src="/nodeI.jpg"
-                    height={18}
+                    src="/DataFLow.drawio.png"
+                    aspectRatio="1.17"
+                    height={20}
                     alt="image"
                     sizes="m"
                     priority={false}
+                    objectFit="scale-down"
+                    radius="8"
+                    enlarge={true}
                   />
                 </span>
               </Heading>

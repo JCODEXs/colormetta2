@@ -67,7 +67,7 @@ function Contact() {
               <Heading wrap="balance" variant="display-strong-s">
                 <span className="font-code">
                   <SmartImage
-                    src="/node2.jpg"
+                    src="/node1.jpg"
                     height={22}
                     alt="image"
                     sizes="m"

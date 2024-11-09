@@ -44,7 +44,7 @@ const Pricing: React.FC = () => {
         " Responsive Layout",
         "API design",
       ],
-      buttonText: "Contact Us for a Quote",
+      buttonText: "know more",
       buttonRedirectionUrl: "/moreinfo/3",
     },
   ];
@@ -106,11 +106,14 @@ const Pricing: React.FC = () => {
               <Heading wrap="balance" variant="display-strong-s">
                 <span className="font-code">
                   <SmartImage
-                    src="/node.jpg"
-                    height={24}
+                    src="/ProcessDiagram.drawio.png"
+                    height={20}
                     alt="image"
                     sizes="m"
                     priority={false}
+                    objectFit="scale-down"
+                    radius="8"
+                    enlarge={true}
                   />
                 </span>
               </Heading>
@@ -122,6 +125,11 @@ const Pricing: React.FC = () => {
               All plans are one-time payments and includes hosting for a year,
               optimized Image managment and don´t includes the domain{" "}
             </Text>
+          </Flex>
+          <Flex alignItems="strech" justifyContent="center">
+            <Button href="/contact" variant="secondary">
+              Build My Website
+            </Button>
           </Flex>
           {/* Pricing Cards */}
           <RevealFx speed="medium" delay={0} translateY={3}>
