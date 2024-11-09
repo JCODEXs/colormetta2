@@ -3,6 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 import styles from "./contactForm.module.css";
 import Notification from "../notifications/notifications";
+import Image from "next/image";
+import { Button } from "@/once-ui/components";
 
 type RequestStatus = "pending" | "success" | "error" | "";
 type ContactDetails = {
@@ -108,8 +110,9 @@ function ContactForm() {
     <section className={styles.contact}>
       <div className={styles.callToaction}>
         <p>
-          Give us your contact information, and we will get in touch with you to
-          discuss your ideas and provide you with a personalized quote.
+          Share your contact details, and we’ll reach out to discuss your ideas
+          and offer a personalized quote. You can also message us directly on
+          WhatsApp! or join our Discord.
         </p>
       </div>
       <form ref={ref} className={styles.form} onSubmit={sendMessageHandler}>
@@ -164,7 +167,7 @@ function ContactForm() {
           </div>
         </div>
         <div className={styles.control}>
-          <label htmlFor="message">Messaje</label>
+          <label htmlFor="message">Message</label>
           <textarea
             style={{
               border: "1px solid #F066F2",
@@ -179,8 +182,66 @@ function ContactForm() {
             onChange={(event) => setEnteredMessage(event.target.value)}
           ></textarea>
         </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <button className={styles.button}>Send 📨</button>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "1rem",
+            justifyContent: "space-around",
+          }}
+        >
+          <a
+            style={{
+              zIndex: 100,
+              marginBottom: "1rem",
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Chat on WhatsApp"
+            href="https://wa.me/573002536997"
+          >
+            {" "}
+            <Image
+              alt="Chat on WhatsApp"
+              src="/linechat .png"
+              width={58}
+              height={58}
+            />{" "}
+          </a>
+          {/* <a
+            style={{
+              zIndex: 100,
+              marginBottom: "1rem",
+            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="call us"
+            href="tel:17074974415"
+          >
+            {" "}
+            <Image
+              alt="call us"
+              src="/phone.png"
+              width={55}
+              height={55}
+              style={{
+                borderRadius: "50%",
+              }}
+            />{" "}
+          </a> */}
 
-        <button className={styles.button}>Send 📨</button>
+          <Button
+            href="https://discord.gg/945vGxQV"
+            prefixIcon="discord"
+            size="l"
+            variant="danger"
+          >
+            Discord
+          </Button>
+        </div>
       </form>
       {notification && (
         <Notification

@@ -12,6 +12,7 @@ import {
   SmartImage,
   RevealFx,
 } from "@/once-ui/components";
+
 interface MoreInfoProps {
   id: number;
 }
@@ -308,6 +309,11 @@ const MoreInfo = ({ id }: MoreInfoProps) => {
                 ))}
             </Grid>
           </RevealFx>
+          <Flex alignItems="strech" justifyContent="center">
+            <Button href="/pricing" variant="secondary">
+              Back to pricing
+            </Button>
+          </Flex>
         </Flex>
       </Flex>
 

@@ -143,13 +143,15 @@
   font: inherit;
   border: none;
   background-color:var(--scheme-custom-400);
-  width: fit-content;
+  width:100%;
   align-self: center;
   color: white;
-  padding: 0.5rem 0.75rem;
+  font-size: larger;
+  padding: 0.75rem 0.75rem;
   border-radius: 20px;
   z-index: 10;
   margin: 0.55rem;
+  margin-bottom: 2rem;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 }

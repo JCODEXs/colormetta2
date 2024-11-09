@@ -9,6 +9,9 @@ const config = {
   reactStrictMode: true,
   swcMinify: true,
   output: "standalone",
+  images: {
+    remotePatterns: [{ hostname: "utfs.io" }, { hostname: "www.google.com" }],
+  },
 };
 
 export default config;
