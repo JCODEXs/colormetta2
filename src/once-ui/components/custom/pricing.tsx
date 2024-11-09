@@ -25,7 +25,7 @@ const Pricing: React.FC = () => {
     {
       title: "Plus Plan",
       description: "Add more pages like About, History, etc.",
-      price: "$450",
+      price: "$480",
       features: [
         "Up to 5 Pages",
         "About, History, Contact",
@@ -89,7 +89,7 @@ const Pricing: React.FC = () => {
               paddingX="xl"
               alignItems="flex-end"
               justifyContent="flex-start"
-              marginBottom="56"
+              marginBottom="20"
             >
               <Logo size="xl" icon={false} style={{ zIndex: "1" }} />
               <span className="font-code">
@@ -100,24 +100,30 @@ const Pricing: React.FC = () => {
               position="relative"
               flex={4}
               gap="16"
-              marginBottom="24"
+              // marginBottom="12"
               direction="column"
             >
               <Heading wrap="balance" variant="display-strong-s">
                 <span className="font-code">
                   <SmartImage
                     src="/ProcessDiagram.drawio.png"
-                    height={20}
+                    height={18}
                     alt="image"
                     sizes="m"
                     priority={false}
                     objectFit="scale-down"
                     radius="8"
                     enlarge={true}
+                    aspectRatio="2"
                   />
                 </span>
               </Heading>
             </Flex>
+          </Flex>
+          <Flex alignItems="strech" justifyContent="center" margin="8">
+            <Button href="/contact" variant="secondary">
+              Build My Website
+            </Button>
           </Flex>
           <Flex justifyContent="center" margin="4" alignItems="center">
             <Text>
@@ -126,11 +132,7 @@ const Pricing: React.FC = () => {
               optimized Image managment and don´t includes the domain{" "}
             </Text>
           </Flex>
-          <Flex alignItems="strech" justifyContent="center">
-            <Button href="/contact" variant="secondary">
-              Build My Website
-            </Button>
-          </Flex>
+
           {/* Pricing Cards */}
           <RevealFx speed="medium" delay={0} translateY={3}>
             <Grid
